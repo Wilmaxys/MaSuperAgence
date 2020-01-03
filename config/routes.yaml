@@ -4,3 +4,8 @@ home:
 properties:
   path: /properties
   controller: App\Controller\PropertyController::index
+property:
+  path: /properties/{slug}.{id}
+  controller: App\Controller\PropertyController::show
+  requirements:
+    slug: "[a-z0-9\\-]*"
