@@ -1,11 +1,28 @@
 home:
   path: /
   controller: App\Controller\HomeController::index
-properties:
+properties.show:
   path: /properties
   controller: App\Controller\PropertyController::index
-property:
-  path: /properties/{slug}.{id}
+property.show:
+  path: /properties/{slug}-{id}
   controller: App\Controller\PropertyController::show
   requirements:
     slug: "[a-z0-9\\-]*"
+
+admin.properties.show:
+  path: /admin
+  controller: App\Controller\Admin\PropertyController::index
+admin.property.new:
+  path: /admin/properties/new
+  controller: App\Controller\Admin\PropertyController::new
+admin.property.edit:
+  path: /admin/properties/{id}
+  controller: App\Controller\Admin\PropertyController::edit
+  requirements:
+    slug: "[a-z0-9\\-]*"
+  methods:    GET|POST
+admin.property.delete:
+  path: /admin/properties/{id}
+  controller: App\Controller\Admin\PropertyController::delete
+  methods:    DELETE

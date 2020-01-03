@@ -10,10 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 class HomeController extends AbstractController
 {
     /**
-     * @var EntityManagerInterface
-     */
-    private $em;
-    /**
      * @var PropertyRepository
      */
     private $repository;
@@ -22,11 +18,9 @@ class HomeController extends AbstractController
      * HomeController constructor.
      *
      * @param PropertyRepository     $repository Repository to manage properties
-     * @param EntityManagerInterface $em         Entity manager instance
      */
-    public function __construct(PropertyRepository $repository, EntityManagerInterface $em)
+    public function __construct(PropertyRepository $repository)
     {
-        $this->em = $em;
         $this->repository = $repository;
     }
 
