@@ -9,6 +9,12 @@ property.show:
   controller: App\Controller\PropertyController::show
   requirements:
     slug: "[a-z0-9\\-]*"
+login:
+  path: /login
+  controller: App\Controller\SecurityController::login
+logout:
+  path: /logout
+
 
 admin.properties.show:
   path: /admin
