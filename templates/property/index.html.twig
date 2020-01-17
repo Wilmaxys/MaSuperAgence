@@ -1,10 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="jumbotron text-center">
+    <div class="jumbotron">
         <div class="container">
-            <h1>Acheter</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, blanditiis consectetur delectus distinctio eos esse explicabo hic ipsum itaque minus nihil odio, repudiandae sunt velit veniam veritatis vero voluptas voluptatem?</p>
+            {{ form_start(form) }}
+            <div class="form-row align-items-end">
+                <div class="col">
+                    {{ form_row(form.minSurface) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.maxPrice) }}
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <button class="btn btn-primary">Rechercher</button>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <h1>Acheter</h1>
+        <div class="row">
+        {% for property in properties %}
+                <div class="col-md-4">
+                    {% include 'property/_property.html.twig' %}
+                </div>
+        {% endfor %}
+        </div>
+        <div class="pagination">
+            {{ knp_pagination_render(properties) }}
         </div>
     </div>
 {% endblock %}
