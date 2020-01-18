@@ -21,6 +21,7 @@
                 {% for property in properties %}
                     <tr>
                         <td>{{ property.title }}</td>
+                        {#<td>{{ property.updatedAt|format_datetime('none', 'short', locale='fr') }}</td>#}
                         <td>
                             <a href="{{ path('admin.property.edit', {id: property.id}) }}" class="btn btn-secondary" >Editer</a>
                             <form method="POST" action="{{ path('admin.property.delete', {id : property.id}) }}" style="display: inline-block;" onsubmit="return confirm('Êtes-vous sûr ?')">

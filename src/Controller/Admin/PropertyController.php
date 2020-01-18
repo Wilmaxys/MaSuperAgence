@@ -49,9 +49,10 @@ class PropertyController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $this->em->persist($property);
             $this->em->Flush();
-            $this->addFlash('success', 'Bien ajouter avec succès.');
+            $this->addFlash('success', 'Bien ajouter avec succès. Bravo!');
 
             return $this->redirectToRoute('admin.properties.show');
         }
@@ -69,6 +70,7 @@ class PropertyController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $this->em->Flush();
             $this->addFlash('success', 'Bien modifier avec succès.');
 
