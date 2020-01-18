@@ -32,3 +32,24 @@ admin.property.delete:
   path: /admin/properties/{id}
   controller: App\Controller\Admin\PropertyController::delete
   methods:    DELETE
+
+admin.tags.show:
+  path: /admin/tag
+  methods:    GET
+  controller: App\Controller\Admin\TagController::index
+admin.tag.new:
+  path: /admin/tag/new
+  methods:    GET|POST
+  controller: App\Controller\Admin\TagController::new
+admin.tag.show:
+  path: /admin/tag/{id}
+  methods:    GET
+  controller: App\Controller\Admin\TagController::show
+admin.tag.edit:
+  path: /admin/tag/{id}/edit
+  methods:    GET|POST
+  controller: App\Controller\Admin\TagController::edit
+admin.tag.delete:
+  path: /admin/tag/{id}
+  methods:    DELETE
+  controller: App\Controller\Admin\TagController::delete
