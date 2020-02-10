@@ -32,3 +32,11 @@ services:
 
     App\Service\CompressionService:
         public: true
+
+    Symfony\Component\Ldap\Ldap:
+        arguments: ['@Symfony\Component\Ldap\Adapter\ExtLdap\Adapter']
+    Symfony\Component\Ldap\Adapter\ExtLdap\Adapter:
+        arguments:
+            - host: localhost
+              port: 10389
+              encryption: none

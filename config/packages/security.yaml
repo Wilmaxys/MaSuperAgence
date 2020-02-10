@@ -1,20 +1,32 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        from_database:
-            entity:
-                class: App\Entity\User
-                property: username
+        #from_database:
+        #    entity:
+        #        class: App\Entity\User
+        #        property: username
+        my_ldap:
+            ldap:
+                service: Symfony\Component\Ldap\Ldap
+                base_dn: ou=Users,dc=example,dc=com
+                search_dn: "uid=admin,ou=system"
+                search_password: secret
+                default_roles: ROLE_ADMIN
+                uid_key: uid
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: lazy
-            form_login:
-                check_path: login
-            logout:
-                path: /logout
+            http_basic_ldap:
+                # ...
+                service: Symfony\Component\Ldap\Ldap
+                dn_string: 'uid={username},ou=Users,dc=example,dc=com'
+            #form_login:
+            #    check_path: login
+            #logout:
+            #    path: /logout
             # http_basic: true
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -27,7 +39,7 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-    encoders:
-        App\Entity\User:
-            algorithm: bcrypt
-            cost: 12
+    #encoders:
+    #    App\Entity\User:
+    #        algorithm: bcrypt
+    #        cost: 12

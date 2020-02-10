@@ -13,7 +13,7 @@ Encore
     .disableSingleRuntimeChunk()
     // will output as app/Resources/webpack/server-bundle.js
     .addEntry('app', './assets/js/app.js')
-    .addEntry("server-bundle", "./assets/js/entryPoint.js");
+    /*.addEntry("server-bundle", "./assets/js/entryPoint.js");*/
 // export the final configuration
 module.exports = Encore.getWebpackConfig();
 

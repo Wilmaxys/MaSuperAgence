@@ -343,6 +343,9 @@
     "symfony/intl": {
         "version": "v4.4.2"
     },
+    "symfony/ldap": {
+        "version": "v4.4.4"
+    },
     "symfony/mailer": {
         "version": "4.3",
         "recipe": {
